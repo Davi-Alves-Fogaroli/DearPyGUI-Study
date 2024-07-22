@@ -10,16 +10,16 @@
     # "ViewPort" is the window created by the operational system
     # Need be create explicit using this comand dpg.create_viewport()
 # dpg.show_viewport()
-    # Weel this point i asume you now what this comand do kkk
+    # Weel this point, i asume you now what this comand do kkk
     # But any way i gona register that, because i wanted XP
-    # This command show the viewport, whic as customized in line 7: "whih...."
+    # This command show the viewport
 
 # dpg.setup_dearpygui()
     
 # dpg.start_dearpygui()
     # The render loop. Is complestletely handled by the "dpg.start_dearpygui()"
         # This is important, well every comand until this point is impotant, but anyway
-        # This is responsible for displaying items (i dont realy undertains waht this mean)
+        # This is responsible for displaying items (i dont realy undertains what this mean)
         # Partially maintaining state and callbacks
         # some cases it´s necessaty to explicitly create the render loop
         

@@ -2,20 +2,23 @@ import dearpygui.dearpygui as dpg
 
 dpg.create_context()
 
-def button_callback(sender, app_data, user_data):
-    print(f"sender is: {sender}")
-    print(f"app_data is: {app_data}")
-    print(f"user_data is: {user_data}")
+def print_val(sender):
+    print(dpg.get_value(sender))
 
-with dpg.window(label="Tutorial"):
-    # user data and callback set when button is created
-    dpg.add_button(label="Apply", callback=button_callback, user_data="Some Data")
+with dpg.window(label="Tutorial", width=400, height=400):
+    with dpg.plot(label="Drag Lines/Points", height=-1, width=-1):
+        dpg.add_plot_legend()
+        dpg.add_plot_axis(dpg.mvXAxis, label="x")
+        dpg.set_axis_limits(dpg.last_item(), -5, 5)
+        dpg.add_plot_axis(dpg.mvYAxis, label="y")
+        dpg.set_axis_limits(dpg.last_item(), -5, 5)
 
-    # user data and callback set any time after button has been created
-    btn = dpg.add_button(label="Apply 2", )
-    dpg.set_item_callback(btn, button_callback)
-    dpg.set_item_user_data(btn, "Some Extra User Data")
-
+        # drag lines/points belong to the plot NOT axis
+        dpg.add_drag_line(label="dline1", color=[255, 0, 0, 255], default_value=2.0, callback=print_val)
+        dpg.add_drag_line(label="dline2", color=[255, 255, 0, 255], vertical=False, default_value=-2, callback=print_val)
+        dpg.add_drag_point(label="dpoint1", color=[255, 0, 255, 255], default_value=(1.0, 1.0), callback=print_val)
+        dpg.add_drag_point(label="dpoint2", color=[255, 0, 255, 255], default_value=(-1.0, 1.0), callback=print_val)
+        dpg.add_drag_double()
 dpg.create_viewport(title='Custom Title', width=800, height=600)
 dpg.setup_dearpygui()
 dpg.show_viewport()

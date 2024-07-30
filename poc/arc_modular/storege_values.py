@@ -1,16 +1,6 @@
 from dearpygui import dearpygui as dpg
 
 trocador_dic = {
-    "Fluidos" : {
-        "Vazão" : {
-            "Gases": None, #na planilha excel: porque esses valores são calculados ao inves de inseridos diretamente ?
-            "Ar": None, #na planilha excel: porque esses valores são calculados ao inves de inseridos diretamente ?
-        },
-        "Temperatura Entrada": {
-            "Gases": None,
-            "Ar": None,
-        },
-    },
     "Name": [],
     "Pre_ar": []
     }
@@ -23,12 +13,12 @@ class Pre_ar:
         self.totalMass = totalMass
         self.propellantMass = propellantMass
 
-with dpg.window(label="Janela de armazenamento", height=200, width=300, pos=[500, 0], show=False):
-    PRE_AR_LIST_G = dpg.add_listbox(items=trocador_dic["Name"], label="Pré ar cadastrados")
+with dpg.window(label="Janela de armazenamento", width=300, height=200, pos=[800, 0], show=False):
+    list = dpg.add_listbox(label="Pré ar cadastrados", items=trocador_dic["Name"])
 
 
 def define_pre_ar(sender, data, user_data): # user_data (list, int[id])
-    def prints():
+    def comentarios_implesmentações_futuras():
     # count = 0
     # """-----implementar verificação de nome nullo e repetido 'user_data[0]'-----"""
     # print(type(user_data[0]), "\n")#see what return
@@ -44,8 +34,8 @@ def define_pre_ar(sender, data, user_data): # user_data (list, int[id])
         dpg.get_value(user_data[4]),
         ))
     
-    print(f"\nTrocador, Pre_ar: {trocador_dic["Pre_ar"]}\n")#see what storege
-    dpg.configure_item(PRE_AR_LIST_G, items=trocador_dic["Name"])
+    print(100*"-",f"\nTrocador, Pre_ar: {trocador_dic["Pre_ar"]}\n")#see what storege
+    dpg.configure_item(list, items=trocador_dic["Name"])
 
 # dpg.setup_dearpygui()
 

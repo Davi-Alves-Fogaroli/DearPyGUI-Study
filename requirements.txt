@@ -1,0 +1,12 @@
+build==1.2.1
+colorama==0.4.6
+dearpygui==1.11.1
+dearpygui_extend==0.1.4
+Fileseq==2.1.1
+future==0.18.3
+hatchling==1.25.0
+packaging==24.1
+pathspec==0.12.1
+pluggy==1.5.0
+pyproject_hooks==1.1.0
+trove-classifiers==2024.7.2
